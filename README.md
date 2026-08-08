@@ -30,6 +30,9 @@ The model uses the following features:
 
 `Mental_Health_Score`
 
+## Screenshot 
+<img width="726" height="616" alt="image" src="https://github.com/user-attachments/assets/f196576c-a0ea-4f28-9410-64771ece8937" />
+
 ## Machine Learning Workflow
 
 ```text
@@ -56,4 +59,3 @@ Model Evaluation
 Model Saving
  ↓
 FastAPI Deployment
-<img width="726" height="616" alt="image" src="https://github.com/user-attachments/assets/79cfc51c-0772-49d9-9f62-3042ab4f3eac" />
