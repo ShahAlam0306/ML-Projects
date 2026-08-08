@@ -6,7 +6,7 @@
    whatever the backend returns.
    ============================================================ */
 
-const API_URL = "http://127.0.0.1:8000/predict";
+const API_URL = "https://student-mental-health-api.onrender.com/";
 
 const form = document.getElementById("predict-form");
 const predictBtn = document.getElementById("predict-btn");
