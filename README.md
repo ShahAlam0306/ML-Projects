@@ -56,3 +56,4 @@ Model Evaluation
 Model Saving
  ↓
 FastAPI Deployment
+<img width="726" height="616" alt="image" src="https://github.com/user-attachments/assets/79cfc51c-0772-49d9-9f62-3042ab4f3eac" />
