@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Mental Health Score Prediction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- ===== Header / Hero ===== -->
+    <header class="hero">
+      <p class="eyebrow">Machine Learning · Student Wellbeing</p>
+      <h1 class="hero-title">Student Mental Health<br />Score Prediction</h1>
+      <p class="hero-description">
+        This tool uses a trained machine-learning model to estimate a student's mental
+        health score from their lifestyle, study habits, and social media usage.
+        Fill in the form below and the prediction is generated live by a FastAPI backend.
+      </p>
+    </header>
+
+    <div class="layout">
+
+      <!-- ===== Form Card ===== -->
+      <main class="card form-card">
+        <div class="card-header">
+          <h2>Student Profile</h2>
+          <p>All fields are required for an accurate prediction.</p>
+        </div>
+
+        <form id="predict-form" novalidate>
+
+          <div class="field-grid">
+
+            <div class="field">
+              <label for="age">Age</label>
+              <input type="number" id="age" name="Age" min="5" max="100" placeholder="e.g. 20" required />
+              <span class="field-error" data-error-for="age"></span>
+            </div>
+
+            <div class="field">
+              <label for="gender">Gender</label>
+              <select id="gender" name="Gender" required>
+                <option value="" disabled selected>Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <span class="field-error" data-error-for="gender"></span>
+            </div>
+
+            <div class="field">
+              <label for="country">Country</label>
+              <input type="text" id="country" name="Country" placeholder="e.g. India" required />
+              <span class="field-error" data-error-for="country"></span>
+            </div>
+
+            <div class="field">
+              <label for="academic-level">Academic Level</label>
+              <select id="academic-level" name="Academic_Level" required>
+                <option value="" disabled selected>Select level</option>
+                <option value="High School">High School</option>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Graduate">Graduate</option>
+              </select>
+              <span class="field-error" data-error-for="academic-level"></span>
+            </div>
+
+            <div class="field">
+              <label for="platform">Most Used Platform</label>
+              <select id="platform" name="Most_Used_Platform" required>
+                <option value="" disabled selected>Select platform</option>
+                <option value="Facebook">Facebook</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Snapchat">Snapchat</option>
+                <option value="Twitter">Twitter</option>
+                <option value="YouTube">YouTube</option>
+                <option value="TikTok">TikTok</option>
+                <option value="LINE">LINE</option>
+                <option value="KakaoTalk">KakaoTalk</option>
+                <option value="VKontakte">VKontakte</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="WeChat">WeChat</option>
+              </select>
+              <span class="field-error" data-error-for="platform"></span>
+            </div>
+
+            <div class="field">
+              <label for="purpose">Purpose of Use</label>
+              <select id="purpose" name="Purpose_Of_Use" required>
+                <option value="" disabled selected>Select purpose</option>
+                <option value="Networking">Networking</option>
+                <option value="Education">Education</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="News">News</option>
+              </select>
+              <span class="field-error" data-error-for="purpose"></span>
+            </div>
+
+            <div class="field">
+              <label for="usage-hours">Avg. Daily Usage (hours)</label>
+              <input type="number" id="usage-hours" name="Avg_Daily_Usage_Hours" min="0" max="24" step="0.1" placeholder="e.g. 6" required />
+              <span class="field-error" data-error-for="usage-hours"></span>
+            </div>
+
+            <div class="field">
+              <label for="daily-unlocks">Daily Unlocks</label>
+              <input type="number" id="daily-unlocks" name="Daily_Unlocks" min="0" max="500" placeholder="e.g. 50" required />
+              <span class="field-error" data-error-for="daily-unlocks"></span>
+            </div>
+
+            <div class="field">
+              <label for="study-hours">Study Hours</label>
+              <input type="number" id="study-hours" name="Study_Hours" min="0" max="24" step="0.1" placeholder="e.g. 4" required />
+              <span class="field-error" data-error-for="study-hours"></span>
+            </div>
+
+            <div class="field">
+              <label for="activity-hours">Physical Activity (hours)</label>
+              <input type="number" id="activity-hours" name="Physical_Activity_Hours" min="0" max="24" step="0.1" placeholder="e.g. 1" required />
+              <span class="field-error" data-error-for="activity-hours"></span>
+            </div>
+
+            <div class="field">
+              <label for="sleep-hours">Sleep Hours / Night</label>
+              <input type="number" id="sleep-hours" name="Sleep_Hours_Per_Night" min="0" max="24" step="0.1" placeholder="e.g. 7" required />
+              <span class="field-error" data-error-for="sleep-hours"></span>
+            </div>
+
+            <div class="field">
+              <label for="stress-level">Stress Level</label>
+              <select id="stress-level" name="Stress_Level" required>
+                <option value="" disabled selected>Select stress level</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Very High">Very High</option>
+              </select>
+              <span class="field-error" data-error-for="stress-level"></span>
+            </div>
+
+          </div>
+
+          <button type="submit" id="predict-btn" class="predict-btn">
+            <span class="btn-label">Predict Score</span>
+            <span class="btn-spinner" hidden></span>
+          </button>
+
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+
+        </form>
+      </main>
+
+      <!-- ===== Result Card ===== -->
+      <aside class="card result-card" id="result-card">
+        <div class="result-idle" id="result-idle">
+          <div class="idle-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="40" height="40">
+              <path d="M24 4C13 4 4 12 4 22c0 5 2.4 9.4 6.2 12.4L9 44l8.4-4.6c2 .6 4.2 1 6.6 1 11 0 20-8 20-18S35 4 24 4z"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <p class="idle-title">No prediction yet</p>
+          <p class="idle-text">Complete the form and select <strong>Predict Score</strong> to see the model's estimate here.</p>
+        </div>
+
+        <div class="result-loading" id="result-loading" hidden>
+          <div class="loading-ring" aria-hidden="true"></div>
+          <p class="loading-text">Contacting the model&hellip;</p>
+        </div>
+
+        <div class="result-success" id="result-success" hidden>
+          <p class="result-label">Predicted Mental Health Score</p>
+
+          <svg class="gauge" viewBox="0 0 220 130" aria-hidden="true">
+            <path class="gauge-track" d="M20 110 A90 90 0 0 1 200 110" />
+            <path class="gauge-fill" id="gauge-fill" d="M20 110 A90 90 0 0 1 200 110" />
+          </svg>
+
+          <p class="result-value" id="result-value">0.0</p>
+          <p class="result-scale">out of 10</p>
+          <p class="result-note" id="result-note"></p>
+        </div>
+
+        <div class="result-error" id="result-error" hidden>
+          <div class="error-icon" aria-hidden="true">!</div>
+          <p class="error-title">Prediction failed</p>
+          <p class="error-text" id="error-text">The backend could not be reached.</p>
+        </div>
+      </aside>
+
+    </div>
+
+    <footer class="page-footer">
+      <p>Frontend calls <code>POST /predict</code> on a local FastAPI service — no data leaves your machine.</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
